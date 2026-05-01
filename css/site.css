@@ -196,70 +196,30 @@ h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
 .link-arrow:hover { gap: 12px; border-color: currentColor; }
 
 /* ============================================================ */
-/*                  HERO — direct reference image                */
+/*                  HERO — Sofia illustration                    */
 /* ============================================================ */
 .hero {
   position: relative;
-  padding: clamp(96px, 14vh, 130px) var(--pad) clamp(40px, 6vh, 80px);
+  padding: clamp(86px, 12vh, 110px) var(--pad) clamp(40px, 6vh, 80px);
 }
-.scene-frame { position: relative; max-width: var(--max); margin: 0 auto; }
-.frame-corner {
-  position: absolute;
-  width: 24px; height: 24px;
-  border: 1.5px solid var(--ink);
-  pointer-events: none; z-index: 5;
+.hero-image {
+  display: block;
+  max-width: var(--max);
+  margin: 0 auto;
 }
-.frame-corner.tl { top: -10px; left: -10px; border-right: 0; border-bottom: 0; }
-.frame-corner.tr { top: -10px; right: -10px; border-left: 0; border-bottom: 0; }
-.frame-corner.bl { bottom: -10px; left: -10px; border-right: 0; border-top: 0; }
-.frame-corner.br { bottom: -10px; right: -10px; border-left: 0; border-top: 0; }
-
-.browser {
-  background: var(--card);
-  border: 1px solid var(--ink);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 30px 60px -30px rgba(31,36,33,.18);
-  position: relative;
-}
-.browser-bar {
-  display: flex; align-items: center; gap: 12px;
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--line-2);
-  background: linear-gradient(180deg, #fff, #fbf7ee);
-}
-.browser-dots { display: flex; gap: 6px; }
-.browser-dots span { width: 10px; height: 10px; border-radius: 50%; border: 1.2px solid var(--ink); background: transparent; }
-.browser-url {
-  flex: 1; display: inline-flex; align-items: center; gap: 10px;
-  padding: 6px 14px; border: 1.2px solid var(--ink); border-radius: 999px;
-  font-family: var(--serif); font-size: .9rem; color: var(--ink);
-  max-width: 460px; margin: 0 auto; background: var(--card);
-}
-.browser-url em { font-style: italic; color: var(--muted); font-weight: 400; margin-left: 4px; }
-.browser-url::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
-.browser-arrow {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: var(--accent); color: var(--paper);
-  display: grid; place-items: center; font-size: .9rem;
-  flex-shrink: 0;
-  transition: transform .3s var(--t), background .3s;
-}
-.browser-arrow:hover { background: var(--accent-2); transform: rotate(-45deg); }
-
-.scene { position: relative; background: var(--paper-2); }
-.scene-image {
+.hero-image img {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 4px;
 }
 
-/* Subtle hover lift on the whole image */
-.scene { transition: transform .8s var(--t); }
-.browser:hover .scene { transform: scale(1.005); }
-
 /* Hero CTAs and trust */
-.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 36px auto 0; max-width: var(--max); justify-content: center; }
+.hero-cta {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  margin: 40px auto 0; max-width: var(--max);
+  justify-content: center;
+}
 .hero-trust {
   list-style: none; padding: 0;
   margin: 32px auto 0; max-width: var(--max);
