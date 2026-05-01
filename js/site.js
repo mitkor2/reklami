@@ -1,9 +1,8 @@
-/* SDproject — site JS, vanilla, no deps */
+/* SDproject — site JS, vanilla */
 (function () {
   'use strict';
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // year
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
@@ -76,5 +75,33 @@
       });
     }, { rootMargin: '-40% 0px -55% 0px' });
     sections.forEach(function (s) { ao.observe(s.section); });
+  }
+
+  // subtle cursor parallax on the hero illustration
+  var scene = document.querySelector('.scene svg');
+  if (scene && !reduced && window.matchMedia('(hover: hover)').matches) {
+    var groups = scene.querySelectorAll('.illus-cloud, .illus-cloud-2, .illus-sun');
+    var rect, raf = null;
+    function onMove(e) {
+      if (!rect) rect = scene.getBoundingClientRect();
+      var px = (e.clientX - rect.left) / rect.width - .5;
+      var py = (e.clientY - rect.top) / rect.height - .5;
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(function () {
+        groups.forEach(function (g, i) {
+          var depth = (i + 1) * 4;
+          g.style.transform = 'translate(' + (-px * depth) + 'px,' + (-py * depth) + 'px)';
+        });
+      });
+    }
+    function onLeave() {
+      groups.forEach(function (g) { g.style.transform = ''; });
+    }
+    var sceneEl = document.querySelector('.scene');
+    if (sceneEl) {
+      sceneEl.addEventListener('mousemove', onMove);
+      sceneEl.addEventListener('mouseleave', onLeave);
+      window.addEventListener('resize', function () { rect = null; });
+    }
   }
 })();
