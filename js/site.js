@@ -73,6 +73,28 @@
     sections.forEach(function (s) { ao.observe(s.section); });
   }
 
+  // day/night badge — sync with the 32s CSS cycle
+  var modeIcon = document.getElementById('scene-mode-icon');
+  var modeText = document.getElementById('scene-mode-text');
+  if (modeIcon && modeText && !reduced) {
+    var CYCLE = 32000; // must match --cycle in CSS
+    var t0 = performance.now();
+    function loop() {
+      var t = ((performance.now() - t0) % CYCLE) / CYCLE;
+      // 0..0.36 day, 0.36..0.46 dusk, 0.46..0.86 night, 0.86..1 dawn
+      var label = 'ден';
+      var isNight = false;
+      if (t < .36)        { label = 'ден';  isNight = false; }
+      else if (t < .46)   { label = 'залез'; isNight = false; }
+      else if (t < .86)   { label = 'нощ';  isNight = true;  }
+      else                { label = 'изгрев'; isNight = false; }
+      if (modeText.textContent !== label) modeText.textContent = label;
+      modeIcon.classList.toggle('night', isNight);
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+  }
+
   // counters
   var counters = document.querySelectorAll('[data-count]');
   if (counters.length && 'IntersectionObserver' in window && !reduced) {
