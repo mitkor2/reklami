@@ -263,7 +263,23 @@ h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
   margin-bottom: 24px;
   letter-spacing: -.025em;
 }
-.hero-text h1 em { font-style: italic; color: var(--accent); }
+.hero-text h1 em {
+  font-style: italic; color: var(--accent);
+  position: relative;
+  display: inline-block;
+}
+.hero-text h1 em::after {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: .82em;
+  background: var(--accent);
+  margin-left: 5px;
+  vertical-align: -0.06em;
+  border-radius: 1.5px;
+  animation: brand-caret 1s steps(2) infinite;
+}
+.hero-text h1 em.typing::after { animation: none; opacity: 1; }
 .hero-text .lede {
   max-width: 580px; margin: 0 auto 32px;
   font-size: 1.15rem; line-height: 1.5;

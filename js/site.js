@@ -6,6 +6,61 @@
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
+  // Hero headline cycling: rotates through different ad-type nouns
+  // ('външна реклама.' -> 'билборди.' -> 'рекламни елементи.') with a
+  // typewriter effect (erase to empty, then type the next word).
+  (function () {
+    var els = document.querySelectorAll('[data-cycle]');
+    if (!els.length || reduced) return;
+    var words = [
+      'външна реклама.',
+      'билборди.',
+      'рекламни елементи.'
+    ];
+    var ERASE_MS = 38;
+    var TYPE_MS  = 70;
+    var PAUSE_MS = 2200;
+
+    function setAll(text) {
+      for (var k = 0; k < els.length; k++) els[k].textContent = text;
+    }
+    function curr() { return els[0] ? els[0].textContent : ''; }
+
+    function eraseTo(target, done) {
+      var t = curr();
+      if (t === target) { done(); return; }
+      var arr = Array.from(t);
+      arr.pop();
+      setAll(arr.join(''));
+      setTimeout(function () { eraseTo(target, done); }, ERASE_MS);
+    }
+    function typeTo(target, done) {
+      var t = curr();
+      if (t === target) { done(); return; }
+      var arr = Array.from(target);
+      var n = Array.from(t).length + 1;
+      setAll(arr.slice(0, n).join(''));
+      setTimeout(function () { typeTo(target, done); }, TYPE_MS);
+    }
+    function setTyping(on) {
+      for (var k = 0; k < els.length; k++) els[k].classList.toggle('typing', on);
+    }
+
+    var i = 0;
+    function cycle() {
+      var next = (i + 1) % words.length;
+      setTyping(true);
+      eraseTo('', function () {
+        typeTo(words[next], function () {
+          i = next;
+          setTyping(false);
+          setTimeout(cycle, PAUSE_MS);
+        });
+      });
+    }
+    setTimeout(cycle, PAUSE_MS);
+  })();
+
   // Animated process tape: stages light up one by one, connectors fill,
   // hold a moment with all done, then reset and repeat.
   (function () {
