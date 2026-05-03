@@ -97,6 +97,13 @@ button { font: inherit; }
   color: var(--accent);
   font-weight: 400;
 }
+.brand .brand-name,
+.brand .brand-tld {
+  display: inline-block;
+  transition: opacity .25s ease;
+}
+.brand .brand-name.swap,
+.brand .brand-tld.swap { opacity: 0; }
 @media (max-width: 540px) {
   .brand .brand-text { font-size: 1rem; }
 }
