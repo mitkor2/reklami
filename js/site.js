@@ -6,6 +6,36 @@
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
+  // Brand text cycling: TLD cycles, then name flips Latin <-> Cyrillic
+  (function () {
+    var nameEl = document.querySelector('[data-name]');
+    var tldEl  = document.querySelector('[data-tld]');
+    if (!nameEl || !tldEl || reduced) return;
+    var states = [
+      { name: 'uzakoniavanereklami', tld: '.com' },
+      { name: 'uzakoniavanereklami', tld: '.bg'  },
+      { name: 'uzakoniavanereklami', tld: '.eu'  },
+      { name: 'узаконяванереклами',  tld: '.com' },
+      { name: 'узаконяванереклами',  tld: '.bg'  },
+      { name: 'узаконяванереклами',  tld: '.eu'  }
+    ];
+    var i = 0;
+    setInterval(function () {
+      var next = (i + 1) % states.length;
+      var nameChanged = states[i].name !== states[next].name;
+      var tldChanged  = states[i].tld  !== states[next].tld;
+      if (nameChanged) nameEl.classList.add('swap');
+      if (tldChanged)  tldEl.classList.add('swap');
+      setTimeout(function () {
+        nameEl.textContent = states[next].name;
+        tldEl.textContent  = states[next].tld;
+        nameEl.classList.remove('swap');
+        tldEl.classList.remove('swap');
+        i = next;
+      }, 260);
+    }, 2200);
+  })();
+
   var toggle = document.querySelector('.nav-toggle');
   var menu = document.getElementById('primary-nav');
   if (toggle && menu) {
