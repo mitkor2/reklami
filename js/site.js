@@ -6,6 +6,72 @@
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
+  // Animated process tape: stages light up one by one, connectors fill,
+  // hold a moment with all done, then reset and repeat.
+  (function () {
+    var tape = document.querySelector('.process-tape');
+    if (!tape) return;
+    var stages = tape.querySelectorAll('.stage');
+    var connectors = tape.querySelectorAll('.connector');
+    var counter = document.getElementById('tape-count');
+    if (!stages.length) return;
+
+    var STEP_MS  = 1500; // delay between activations
+    var FINAL_MS = 2200; // dwell after all done before reset
+
+    function reset() {
+      for (var k = 0; k < stages.length; k++) stages[k].classList.remove('active', 'done');
+      for (var c = 0; c < connectors.length; c++) connectors[c].classList.remove('full');
+      if (counter) counter.textContent = '01';
+    }
+
+    function setCounter(n) {
+      if (!counter) return;
+      counter.textContent = n < 10 ? '0' + n : '' + n;
+    }
+
+    if (reduced) {
+      // show all done state, no animation
+      for (var k = 0; k < stages.length; k++) stages[k].classList.add('done');
+      for (var c = 0; c < connectors.length; c++) connectors[c].classList.add('full');
+      setCounter(stages.length);
+      return;
+    }
+
+    function cycle() {
+      reset();
+      var step = 0;
+
+      function next() {
+        if (step >= stages.length) {
+          // mark final done, hold, then restart
+          stages[stages.length - 1].classList.remove('active');
+          stages[stages.length - 1].classList.add('done');
+          if (connectors[stages.length - 2]) connectors[stages.length - 2].classList.add('full');
+          setCounter(stages.length);
+          setTimeout(cycle, FINAL_MS);
+          return;
+        }
+        // mark previous as done + fill connector behind it
+        if (step > 0) {
+          stages[step - 1].classList.remove('active');
+          stages[step - 1].classList.add('done');
+          if (connectors[step - 1]) connectors[step - 1].classList.add('full');
+        }
+        // activate current
+        stages[step].classList.add('active');
+        setCounter(step + 1);
+        step++;
+        setTimeout(next, STEP_MS);
+      }
+      // first stage activates immediately
+      next();
+    }
+
+    // start after the page settles
+    setTimeout(cycle, 600);
+  })();
+
   // Brand text cycling with a typewriter effect:
   // Erase only the part that changes one char at a time, then type the new value.
   // Updates ALL matching brand elements (header + footer) in sync.
