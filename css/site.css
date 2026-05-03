@@ -206,12 +206,15 @@ h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
   display: block;
   max-width: var(--max);
   margin: 0 auto;
+  border-radius: 6px;
+  overflow: hidden;
+  filter: drop-shadow(0 24px 60px rgba(31,36,33,.12));
 }
-.hero-image img {
+.hero-image .hero-svg,
+.hero-image svg {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 4px;
 }
 
 /* Hero CTAs and trust */
