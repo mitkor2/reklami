@@ -7,10 +7,11 @@
   if (y) y.textContent = new Date().getFullYear();
 
   // Brand text cycling: TLD cycles, then name flips Latin <-> Cyrillic
+  // Updates ALL matching brand elements (header + footer)
   (function () {
-    var nameEl = document.querySelector('[data-name]');
-    var tldEl  = document.querySelector('[data-tld]');
-    if (!nameEl || !tldEl || reduced) return;
+    var names = document.querySelectorAll('[data-name]');
+    var tlds  = document.querySelectorAll('[data-tld]');
+    if (!names.length || !tlds.length || reduced) return;
     var states = [
       { name: 'uzakoniavanereklami', tld: '.com' },
       { name: 'uzakoniavanereklami', tld: '.bg'  },
@@ -20,17 +21,16 @@
       { name: 'узаконяванереклами',  tld: '.eu'  }
     ];
     var i = 0;
+    function each(list, fn) { for (var k = 0; k < list.length; k++) fn(list[k]); }
     setInterval(function () {
       var next = (i + 1) % states.length;
       var nameChanged = states[i].name !== states[next].name;
       var tldChanged  = states[i].tld  !== states[next].tld;
-      if (nameChanged) nameEl.classList.add('swap');
-      if (tldChanged)  tldEl.classList.add('swap');
+      if (nameChanged) each(names, function (el) { el.classList.add('swap'); });
+      if (tldChanged)  each(tlds,  function (el) { el.classList.add('swap'); });
       setTimeout(function () {
-        nameEl.textContent = states[next].name;
-        tldEl.textContent  = states[next].tld;
-        nameEl.classList.remove('swap');
-        tldEl.classList.remove('swap');
+        each(names, function (el) { el.textContent = states[next].name; el.classList.remove('swap'); });
+        each(tlds,  function (el) { el.textContent = states[next].tld;  el.classList.remove('swap'); });
         i = next;
       }, 260);
     }, 2200);
