@@ -6,12 +6,14 @@
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
-  // Brand text cycling: TLD cycles, then name flips Latin <-> Cyrillic
-  // Updates ALL matching brand elements (header + footer)
+  // Brand text cycling with a typewriter effect:
+  // Erase only the part that changes one char at a time, then type the new value.
+  // Updates ALL matching brand elements (header + footer) in sync.
   (function () {
     var names = document.querySelectorAll('[data-name]');
     var tlds  = document.querySelectorAll('[data-tld]');
     if (!names.length || !tlds.length || reduced) return;
+
     var states = [
       { name: 'uzakoniavanereklami', tld: '.com' },
       { name: 'uzakoniavanereklami', tld: '.bg'  },
@@ -20,20 +22,74 @@
       { name: 'узаконяванереклами',  tld: '.bg'  },
       { name: 'узаконяванереклами',  tld: '.eu'  }
     ];
+
+    var ERASE_MS = 35;   // ms between deletions
+    var TYPE_MS  = 60;   // ms between insertions
+    var PAUSE_MS = 1800; // dwell time after a state finishes
+
+    function setAll(list, text) {
+      for (var k = 0; k < list.length; k++) list[k].textContent = text;
+    }
+    function curr(list) { return list[0] ? list[0].textContent : ''; }
+
+    function eraseTo(list, target, done) {
+      var t = curr(list);
+      if (t === target) { done(); return; }
+      // remove one Unicode codepoint (handles Cyrillic + emoji safely)
+      var arr = Array.from(t);
+      arr.pop();
+      setAll(list, arr.join(''));
+      setTimeout(function () { eraseTo(list, target, done); }, ERASE_MS);
+    }
+    function typeTo(list, target, done) {
+      var t = curr(list);
+      if (t === target) { done(); return; }
+      var arr = Array.from(target);
+      var n = Array.from(t).length + 1;
+      setAll(list, arr.slice(0, n).join(''));
+      setTimeout(function () { typeTo(list, target, done); }, TYPE_MS);
+    }
+
+    function transition(from, to, done) {
+      var nameChanged = from.name !== to.name;
+      var tldChanged  = from.tld  !== to.tld;
+      if (nameChanged) {
+        // Erase TLD then name, then type new name then new TLD
+        eraseTo(tlds, '', function () {
+          eraseTo(names, '', function () {
+            typeTo(names, to.name, function () {
+              typeTo(tlds, to.tld, done);
+            });
+          });
+        });
+      } else if (tldChanged) {
+        eraseTo(tlds, '', function () {
+          typeTo(tlds, to.tld, done);
+        });
+      } else {
+        done();
+      }
+    }
+
+    function setTyping(on) {
+      for (var k = 0; k < names.length; k++) {
+        var holder = names[k].parentNode;
+        if (holder) holder.classList.toggle('typing', on);
+      }
+    }
+
     var i = 0;
-    function each(list, fn) { for (var k = 0; k < list.length; k++) fn(list[k]); }
-    setInterval(function () {
+    function cycle() {
       var next = (i + 1) % states.length;
-      var nameChanged = states[i].name !== states[next].name;
-      var tldChanged  = states[i].tld  !== states[next].tld;
-      if (nameChanged) each(names, function (el) { el.classList.add('swap'); });
-      if (tldChanged)  each(tlds,  function (el) { el.classList.add('swap'); });
-      setTimeout(function () {
-        each(names, function (el) { el.textContent = states[next].name; el.classList.remove('swap'); });
-        each(tlds,  function (el) { el.textContent = states[next].tld;  el.classList.remove('swap'); });
+      setTyping(true);
+      transition(states[i], states[next], function () {
         i = next;
-      }, 260);
-    }, 2200);
+        setTyping(false);
+        setTimeout(cycle, PAUSE_MS);
+      });
+    }
+
+    setTimeout(cycle, PAUSE_MS);
   })();
 
   var toggle = document.querySelector('.nav-toggle');

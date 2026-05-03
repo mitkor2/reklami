@@ -98,12 +98,26 @@ button { font: inherit; }
   font-weight: 400;
 }
 .brand .brand-name,
-.brand .brand-tld {
-  display: inline-block;
-  transition: opacity .25s ease;
+.brand .brand-tld { display: inline-block; }
+
+/* Typewriter caret after the brand text */
+.brand .brand-text {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
 }
-.brand .brand-name.swap,
-.brand .brand-tld.swap { opacity: 0; }
+.brand .brand-text::after {
+  content: "";
+  display: inline-block;
+  width: 1.5px;
+  height: 1em;
+  background: var(--accent);
+  margin-left: 3px;
+  vertical-align: -0.12em;
+  animation: brand-caret 1s steps(2) infinite;
+}
+.brand .brand-text.typing::after { animation: none; opacity: 1; }
+@keyframes brand-caret { 50% { opacity: 0; } }
 @media (max-width: 540px) {
   .brand .brand-text { font-size: 1rem; }
 }
