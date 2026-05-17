@@ -136,8 +136,69 @@
     setTimeout(cycle, 600);
   })();
 
-  // Brand is static: uzakoniavanereklami.com (the previous TLD/alphabet
-  // cycling has been removed per request)
+  // Brand typewriter effect: 'uzakoniavanereklami.com' types itself in,
+  // holds, erases, holds, types again. Only the .com version, no other
+  // TLDs or alphabets. Updates header and footer in sync.
+  (function () {
+    var names = document.querySelectorAll('[data-name]');
+    var tlds  = document.querySelectorAll('[data-tld]');
+    if (!names.length || !tlds.length || reduced) return;
+
+    var NAME = 'uzakoniavanereklami';
+    var TLD  = '.com';
+
+    var ERASE_MS = 38;   // ms per char while erasing
+    var TYPE_MS  = 75;   // ms per char while typing
+    var HOLD_MS  = 4500; // dwell after typing completes
+    var GAP_MS   = 600;  // brief pause before retyping
+
+    function setAll(list, text) {
+      for (var k = 0; k < list.length; k++) list[k].textContent = text;
+    }
+    function curr(list) { return list[0] ? list[0].textContent : ''; }
+
+    function eraseTo(list, target, done) {
+      var t = curr(list);
+      if (t === target) { done(); return; }
+      var arr = Array.from(t);
+      arr.pop();
+      setAll(list, arr.join(''));
+      setTimeout(function () { eraseTo(list, target, done); }, ERASE_MS);
+    }
+    function typeTo(list, target, done) {
+      var t = curr(list);
+      if (t === target) { done(); return; }
+      var arr = Array.from(target);
+      var n = Array.from(t).length + 1;
+      setAll(list, arr.slice(0, n).join(''));
+      setTimeout(function () { typeTo(list, target, done); }, TYPE_MS);
+    }
+    function setTyping(on) {
+      for (var k = 0; k < names.length; k++) {
+        var holder = names[k].parentNode;
+        if (holder) holder.classList.toggle('typing', on);
+      }
+    }
+
+    function cycle() {
+      setTyping(true);
+      // erase TLD, then erase name, then type name, then type TLD
+      eraseTo(tlds, '', function () {
+        eraseTo(names, '', function () {
+          setTimeout(function () {
+            typeTo(names, NAME, function () {
+              typeTo(tlds, TLD, function () {
+                setTyping(false);
+                setTimeout(cycle, HOLD_MS);
+              });
+            });
+          }, GAP_MS);
+        });
+      });
+    }
+
+    setTimeout(cycle, HOLD_MS);
+  })();
 
   var toggle = document.querySelector('.nav-toggle');
   var menu = document.getElementById('primary-nav');
