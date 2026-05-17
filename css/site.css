@@ -650,8 +650,15 @@ h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 22px;
 }
-@media (max-width: 880px) { .services-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .services-grid { grid-template-columns: 1fr; } }
+.services-grid.services-grid-2 { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 880px) {
+  .services-grid,
+  .services-grid.services-grid-2 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .services-grid,
+  .services-grid.services-grid-2 { grid-template-columns: 1fr; }
+}
 .service-card {
   background: var(--card);
   border: 1px solid var(--line-2);
