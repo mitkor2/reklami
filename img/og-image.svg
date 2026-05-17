@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#faf6ed"/>
+      <stop offset="1" stop-color="#efe9d8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- faint grid -->
+  <g stroke="#1f2421" stroke-width="1" opacity=".05">
+    <line x1="0" y1="120" x2="1200" y2="120"/>
+    <line x1="0" y1="240" x2="1200" y2="240"/>
+    <line x1="0" y1="360" x2="1200" y2="360"/>
+    <line x1="0" y1="480" x2="1200" y2="480"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- eyebrow pill -->
+  <g transform="translate(80 100)">
+    <rect x="0" y="0" width="280" height="34" rx="17" fill="#d6dfd5"/>
+    <circle cx="20" cy="17" r="4" fill="#2f5b4a"/>
+    <text x="36" y="22" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#2f5b4a" letter-spacing="2">УЗАКОНЯВАНЕ НА РЕКЛАМИ</text>
+  </g>
+
+  <!-- main headline -->
+  <text x="80" y="240" font-family="Fraunces, Georgia, serif" font-size="86" font-weight="500" fill="#1f2421" letter-spacing="-2">Узаконяваме</text>
+  <text x="80" y="335" font-family="Fraunces, Georgia, serif" font-size="86" font-style="italic" font-weight="400" fill="#2f5b4a" letter-spacing="-2">външна реклама.</text>
+
+  <!-- gold underline -->
+  <rect x="80" y="370" width="80" height="3" fill="#c9a44a"/>
+
+  <!-- subtitle -->
+  <text x="80" y="430" font-family="Inter, Arial, sans-serif" font-size="24" fill="#3a443c">София и цяла България. От проект до разрешение.</text>
+
+  <!-- domain -->
+  <g transform="translate(80 540)">
+    <text x="0" y="0" font-family="Fraunces, Georgia, serif" font-size="36" font-weight="500" fill="#1f2421">uzakoniavanereklami<tspan font-style="italic" fill="#2f5b4a">.com</tspan></text>
+  </g>
+
+  <!-- big billboard illustration on the right -->
+  <g transform="translate(820 150)">
+    <!-- pole -->
+    <rect x="118" y="220" width="14" height="200" fill="#1f2421"/>
+    <rect x="100" y="420" width="50" height="8" rx="2" fill="#1f2421"/>
+    <!-- billboard board -->
+    <rect x="0" y="0" width="250" height="180" rx="6" fill="#2f5b4a"/>
+    <rect x="10" y="10" width="230" height="160" rx="2" fill="#faf6ed"/>
+    <text x="125" y="80" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="36" font-style="italic" font-weight="500" fill="#2f5b4a">AD</text>
+    <line x1="40" y1="100" x2="210" y2="100" stroke="#c9a44a" stroke-width="2"/>
+    <text x="125" y="130" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#3a443c" letter-spacing="1">УЗАКОНЕНА</text>
+    <text x="125" y="150" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" fill="#2f5b4a" letter-spacing="1.5" font-weight="700">SDPROJECT · BG</text>
+    <!-- support struts -->
+    <line x1="40" y1="180" x2="110" y2="220" stroke="#1f2421" stroke-width="2"/>
+    <line x1="210" y1="180" x2="140" y2="220" stroke="#1f2421" stroke-width="2"/>
+    <!-- gold accent dot -->
+    <circle cx="234" cy="22" r="6" fill="#c9a44a"/>
+  </g>
+</svg>

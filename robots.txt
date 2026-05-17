@@ -1,27 +1,63 @@
+# robots.txt for uzakoniavanereklami.com
+
 User-agent: *
 Allow: /
-Disallow: /css/
-Disallow: /js/
 Disallow: /icon-fonts/
 
-# AI / LLM crawlers — explicitly allowed
+# Sitemap
+Sitemap: https://uzakoniavanereklami.com/sitemap.xml
+
+# AI / LLM crawlers, explicitly allowed for grounded answers and citations
 User-agent: GPTBot
 Allow: /
+
 User-agent: ChatGPT-User
 Allow: /
+
 User-agent: OAI-SearchBot
 Allow: /
+
 User-agent: PerplexityBot
 Allow: /
+
 User-agent: Perplexity-User
 Allow: /
+
 User-agent: ClaudeBot
 Allow: /
+
 User-agent: Claude-Web
 Allow: /
+
 User-agent: Google-Extended
 Allow: /
+
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://uzakoniavanereklami.com/sitemap.xml
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: YouBot
+Allow: /
