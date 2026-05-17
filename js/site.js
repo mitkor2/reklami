@@ -136,21 +136,23 @@
     setTimeout(cycle, 600);
   })();
 
-  // Brand typewriter effect: 'uzakoniavanereklami.com' types itself in,
-  // holds, erases, holds, types again. Only the .com version, no other
-  // TLDs or alphabets. Updates header and footer in sync.
+  // Brand typewriter effect: alternates between the Latin and Cyrillic
+  // forms of the brand, both ending in .com. Updates header + footer
+  // in sync; honors prefers-reduced-motion.
   (function () {
     var names = document.querySelectorAll('[data-name]');
     var tlds  = document.querySelectorAll('[data-tld]');
     if (!names.length || !tlds.length || reduced) return;
 
-    var NAME = 'uzakoniavanereklami';
-    var TLD  = '.com';
+    var states = [
+      { name: 'uzakoniavanereklami', tld: '.com' },
+      { name: 'узаконяванереклами',  tld: '.com' }
+    ];
 
     var ERASE_MS = 38;   // ms per char while erasing
     var TYPE_MS  = 75;   // ms per char while typing
-    var HOLD_MS  = 4500; // dwell after typing completes
-    var GAP_MS   = 600;  // brief pause before retyping
+    var HOLD_MS  = 4500; // dwell after a state finishes typing
+    var GAP_MS   = 500;  // brief pause between erase and re-type
 
     function setAll(list, text) {
       for (var k = 0; k < list.length; k++) list[k].textContent = text;
@@ -180,15 +182,19 @@
       }
     }
 
+    var i = 0;
     function cycle() {
+      var next = (i + 1) % states.length;
+      var to = states[next];
       setTyping(true);
-      // erase TLD, then erase name, then type name, then type TLD
+      // erase TLD, then erase name, then type new name, then type new TLD
       eraseTo(tlds, '', function () {
         eraseTo(names, '', function () {
           setTimeout(function () {
-            typeTo(names, NAME, function () {
-              typeTo(tlds, TLD, function () {
+            typeTo(names, to.name, function () {
+              typeTo(tlds, to.tld, function () {
                 setTyping(false);
+                i = next;
                 setTimeout(cycle, HOLD_MS);
               });
             });
