@@ -7,6 +7,28 @@
 <meta http-equiv="content-language" content="bg-BG">
 <meta name="format-detection" content="telephone=yes">
 
+<!--
+  Canonical-host redirect.
+  uzakoniavanereklami.com is the canonical Latin domain. Visitors who
+  land on the Cyrillic IDN (узаконяванереклами.com / xn--80aaagqajomelnfcl1b3b3q.com)
+  are bounced here before paint.
+-->
+<script>
+(function () {
+  var canonical = 'uzakoniavanereklami.com';
+  var h = (location.hostname || '').toLowerCase();
+  if (!h) return;
+  if (h === canonical) return;
+  if (h === 'localhost' || h === '127.0.0.1') return;
+  if (h.indexOf('.github.io') !== -1) return;
+  // www -> apex on the Latin domain, and any other host (incl. the
+  // Cyrillic IDN / its punycode form) -> canonical
+  var to = location.protocol + '//' + canonical + (location.pathname || '/') +
+           (location.search || '') + (location.hash || '');
+  location.replace(to);
+})();
+</script>
+
 <title>uzakoniavanereklami.com</title>
 <meta name="description" content="Узаконяване на външна реклама в София и цяла България. Билбордове, мегабордове, фирмени надписи, реклами на сгради и покриви, светлинни реклами, А-стойки, информационни табели. Пълна проектна документация, разрешение за поставяне и удостоверения за експлоатация.">
 <meta name="keywords" content="узаконяване на реклами, узаконяване на билбордове, узаконяване на мегабордове, узаконяване на фирмени надписи, узаконяване на рекламни табели, реклама на покрив, реклама на калкан, реклама на сграда, ажурна реклама, светлинни реклами, фирмени тотеми, информационни табели, информационни пана, разрешение за поставяне, разрешително за рекламна табела, документация за външна реклама, удостоверение за въвеждане в експлоатация, проектиране на реклами, архитект реклами София, конструктор реклами, узаконяване НИНКН">
@@ -55,7 +77,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&display=swap">
 
-<link rel="stylesheet" href="css/site.css?v=20260514">
+<link rel="stylesheet" href="css/site.css?v=20260515">
 
 <meta name="yandex-verification" content="9c181148977f5d3b">
 <meta name="msvalidate.01" content="0D0AD497F4AF7D467A9CED3586ECA602">
@@ -69,8 +91,12 @@
       "@type": ["LocalBusiness", "ProfessionalService"],
       "@id": "https://uzakoniavanereklami.com/#organization",
       "name": "uzakoniavanereklami.com",
-      "alternateName": ["Узаконяване на реклами", "Узаконяване на билбордове", "uzakoniavanereklami"],
+      "alternateName": ["Узаконяване на реклами", "Узаконяване на билбордове", "uzakoniavanereklami", "узаконяванереклами"],
       "url": "https://uzakoniavanereklami.com/",
+      "sameAs": [
+        "https://uzakoniavanereklami.com/",
+        "https://xn--80aaagqajomelnfcl1b3b3q.com/"
+      ],
       "logo": {
         "@type": "ImageObject",
         "url": "https://uzakoniavanereklami.com/img/favicon.svg",
@@ -517,6 +543,6 @@
   </div>
 </footer>
 
-<script src="js/site.js?v=20260514" defer></script>
+<script src="js/site.js?v=20260515" defer></script>
 </body>
 </html>
