@@ -1,77 +1,87 @@
-# SDproject, СТИЛ ДИЗАЙН ПРОЕКТ ООД
+# uzakoniavanereklami.com
 
-> Архитектурно и конструктивно проектиране и узаконяване на всички видове външна реклама в България, билбордове, мегабордове, реклами по сгради и покриви, фирмени надписи, светлинни реклами, табели, А-стойки и схеми за маси на открито.
+> Узаконяване на външна реклама в София и цяла България. Пълна архитектурно-конструктивна проектна документация, придвижване в общината и НИНКН до издаване на Разрешение за поставяне, подновяване на разрешителни и удостоверения за въвеждане в експлоатация на рекламни елементи.
 
-## Company
+## Brand
 
-- **Legal name:** СТИЛ ДИЗАЙН ПРОЕКТ ООД (Stil Dizayn Proekt Ltd.)
-- **Brand:** SDproject
-- **Country:** Bulgaria
-- **Service area:** Sofia and all of Bulgaria
-- **Founded:** 2008 (18+ years of experience)
-- **Website:** https://uzakoniavanereklami.com/
-- **LinkedIn:** https://www.linkedin.com/company/sdproject/
-- **Track record:** 2500+ projects, 439+ clients
+- **Domain & brand**: uzakoniavanereklami.com
+- **Language**: Bulgarian (bg-BG)
+- **Country**: Bulgaria
+- **Primary service area**: София (Sofia) and the rest of Bulgaria (Пловдив, Варна, Бургас, Русе, Стара Загора and other cities)
+- **Track record**: 18+ years of experience, 2500+ projects, 439+ clients
+- **Founded**: 2008
 
 ## Contact
 
-- **Гергана Рангелова (Gergana Rangelova).** Phone: +359 889 244 319. Email: geri.sdproject@gmail.com
+- **Person**: Гергана Рангелова (architect)
+- **Phone**: +359 889 244 319
+- **Email**: geri.sdproject@gmail.com
+- **Channels**: phone, Viber, Messenger (m.me/geri.sdproject), email
 
-## What we do
+## What this business does
 
-We design and legalize (узаконяваме) all forms of outdoor advertising in Bulgaria. We prepare full architectural, structural and electrical project documentation and run the permitting procedure with the relevant municipality.
+A licensed architectural and structural-engineering studio specialised in the **legalisation (узаконяване) of outdoor advertising** in Bulgaria. The team prepares full project documentation, runs the permitting procedure with the municipality and with НИНКН (the National Institute for Immovable Cultural Heritage) where applicable, secures the **Разрешение за поставяне** (Permit to install), renews existing permits and issues **Удостоверения за въвеждане в експлоатация** (Certificates of commissioning) for advertising elements.
 
-### Advertising formats we legalize
+## Services (the 4 actual deliverables)
 
-- Billboards (билбордове), standalone roadside ad structures up to 12 m²
-- Megaboards (мегабордове), large-format ad panels above 12 m² with steel or composite structure
-- Building-facade ads (реклами по сгради), large-format ads on blind facades of residential and public buildings
-- Rooftop ads (реклами на покриви), illuminated signage and 3D letters on rooftop structures, with full structural design
-- Storefront signs and company nameplates (фирмени надписи и табели), signs, nameplates and 3D lettering for shops, offices, restaurants
-- Illuminated / neon / LED signs (светлинни реклами), including full electrical project and approval
-- A-frame signs and information boards (А-стойки)
-- Outdoor café table layouts (схеми за маси на открито), site plans for restaurant terraces, with municipal permit
+1. **Проектна документация** — Изготвяне на пълна проектна документация според рекламния елемент и предаването ѝ на Възложителя. (Full project documentation matched to the advertising element, handed over to the client.)
 
-### Engineering services
+2. **Узаконяване в общината** — Изготвяне на пълна проектна документация, подаване и придвижване в одобряващия орган (община, НИНКН и др.) до издаване на Разрешение за поставяне и предаването му заедно с одобрените проекти на Възложителя. (Full documentation + submission and follow-through with the municipality, НИНКН and other approving bodies, ending with the issued Permit to install delivered to the client together with the approved drawings.)
 
-- Architectural design (архитектурно проектиране)
-- Structural design, reinforced concrete, steel, mixed structures, retaining walls, wooden structures
-- Investment design (инвестиционно проектиране)
-- Building design (проектиране на сгради)
-- Modern reinforcement and strengthening solutions
-- Author supervision (авторски надзор) during construction
+3. **Подновяване на разрешителни** — Подновяване на Разрешителни за поставяне. (Renewal of permits to install.)
 
-## Process
+4. **Удостоверения за експлоатация** — Удостоверения за въвеждане в експлоатация на рекламни елементи. (Certificates of commissioning for installed advertising elements.)
 
-1. Site survey and measurement (заснемане и оглед)
-2. Architectural / structural / electrical design (проектиране)
-3. Full documentation (документация)
-4. Submission and procedure with the municipality (подаване в общината)
-5. Author supervision during installation (авторски надзор)
+## Advertising formats covered
+
+- Външна реклама (outdoor advertising, general)
+- Билбордове (billboards)
+- Мегабордове (megaboards / large-format)
+- Реклама на покриви (rooftop advertising)
+- Реклама на калкани (gable / blind-wall advertising)
+- Ажурна реклама (ажурна / openwork roof signage)
+- Реклами по сгради и фасади (building wraps / facade advertising)
+- Светлинни реклами (illuminated, neon, LED, lightbox)
+- Фирмени надписи (company nameplates / lettering)
+- Фирмени тотеми (company totems / pylons)
+- Фирмени пана (company panels)
+- Информационни елементи (informational elements)
+- Информационни табели (informational signs)
+- Информационни пана (informational panels)
+- Фирмено-информационно указателни табели (wayfinding / directory signs)
+- А-стойки (A-frame sidewalk signs)
+- Схеми за маси на открито (outdoor café table layouts)
+
+## Engineering disciplines provided
+
+- Архитектурно проектиране (Architectural design)
+- Конструктивно проектиране (Structural design — reinforced concrete, steel, mixed structures)
+- Електро проект (Electrical design — for illuminated signs and lightboxes)
+- Авторски надзор (Author supervision) — by request of the client, billed separately
+
+## Process (5 steps)
+
+1. **Заснемане** — Определяне на мащаба на проекта, уточняване на рекламния елемент, консултации и изходни данни. (Scoping: defining project scale, clarifying the advertising element, consultations and input data.)
+2. **Проектиране** — Архитектурен, конструктивен и електро проект по нормативи. (Design: architectural, structural and electrical drawings to regulation.)
+3. **Документация** — Пълен комплект чертежи, становища и придружителни документи. (Documentation: full set of drawings, opinions and accompanying papers.)
+4. **Община** — Внасяне на документите и водене на процедурата до разрешение. (Municipality: submission and follow-through to the issued permit.)
+5. **Авторски надзор** — Надзор по време на монтажа за съответствие с проекта. По искане на Възложителя, заплаща се допълнително. (Author supervision during installation, by client request, charged additionally.)
 
 ## Typical timelines
 
-- Design: 2-4 weeks
-- Municipal procedure: 4-8 weeks
-- Total: typically 6-12 weeks depending on format and municipality
+- Project design: 2–4 weeks.
+- Municipal procedure: 4–8 weeks.
+- Total: typically 6–12 weeks depending on format, location and approving body.
 
 ## Pricing
 
-Pricing is determined individually based on size, location and technical requirements. We provide a fixed quote after the initial site survey and consultation.
+Quotes are individual, based on size, location and technical requirements of the advertising element. After the first consultation and scoping (заснемане) we issue a written offer (оферта).
 
-## Why choose us
+## Why choose uzakoniavanereklami.com
 
 - Licensed architects and structural engineers
-- Complete documentation in-house: architecture, structural, electrical
-- Experience with all categories of outdoor advertising
-- Working relationships with municipalities across Bulgaria
-- Author supervision during installation
-- Transparent timelines and fixed quotes
-
-## FAQ
-
-**Can you legalize already-installed advertising?** Yes. We survey existing ads, prepare full technical documentation and run the legalization procedure with the municipality.
-
-**Do you work outside Sofia?** Yes, across Bulgaria, with focus on Sofia and major cities.
-
-**What does "узаконяване" include?** Architectural and structural project, electrical part where applicable, statements/opinions, on-site survey, and submission of a complete documentation package to the relevant municipality for permit issuance.
+- All documentation in-house: architecture, structural, electrical
+- Experience with every category of outdoor advertising in Bulgaria
+- Working relationships with municipalities and НИНКН
+- Author supervision during installation, on request
+- Transparent timelines, written quotes
