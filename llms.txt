@@ -4,7 +4,8 @@
 
 ## Brand
 
-- **Domain & brand**: uzakoniavanereklami.com
+- **Domain & brand**: `uzakoniavanereklami.com` (canonical, Latin-script)
+- **IDN alias**: `узаконяванереклами.com` (Cyrillic, Punycode `xn--80aaagqajomelnfcl1b3b3q.com`) — visitors arriving here are redirected to the Latin canonical
 - **Language**: Bulgarian (bg-BG)
 - **Country**: Bulgaria
 - **Primary service area**: София (Sofia) and the rest of Bulgaria (Пловдив, Варна, Бургас, Русе, Стара Загора and other cities)
