@@ -713,6 +713,13 @@ h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
   text-justify: inter-word;
 }
 .about-grid p + p { margin-top: .9em; }
+
+/* On narrow viewports justify creates ugly word-rivers — fall back to left */
+@media (max-width: 720px) {
+  .about-grid .lede,
+  .about-grid p { text-align: left; }
+}
+
 .about-grid .first::first-letter {
   font-family: var(--serif);
   font-size: 3.2em;
