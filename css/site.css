@@ -263,10 +263,21 @@ h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
   margin-bottom: 24px;
   letter-spacing: -.025em;
 }
+/* On narrow viewports the longest cycled noun ('информационни') can be
+   wider than the column at the desktop floor of 2.6rem. Drop the floor
+   and let viewport-width drive the size. */
+@media (max-width: 720px) {
+  .hero-text h1 { font-size: clamp(1.7rem, 8vw, 3rem); line-height: 1.05; }
+}
+@media (max-width: 380px) {
+  .hero-text h1 { font-size: clamp(1.5rem, 7.8vw, 2rem); }
+}
 .hero-text h1 em {
   font-style: italic; color: var(--accent);
   position: relative;
   display: inline-block;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 .hero-text h1 em::after {
   content: "";
@@ -713,6 +724,13 @@ h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
   text-justify: inter-word;
 }
 .about-grid p + p { margin-top: .9em; }
+
+/* On narrow viewports justify creates ugly word-rivers — fall back to left */
+@media (max-width: 720px) {
+  .about-grid .lede,
+  .about-grid p { text-align: left; }
+}
+
 .about-grid .first::first-letter {
   font-family: var(--serif);
   font-size: 3.2em;
