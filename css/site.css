@@ -12,7 +12,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   --ink:      #1f2421;          /* deep forest-black like reference */
   --ink-2:    #3a443c;
   --ink-3:    #5a655c;
-  --muted:    #7a857d;
+  --muted:    #66706a;   /* ≥4.5:1 on --paper for WCAG AA */
   --line:     rgba(31,36,33,.10);
   --line-2:   rgba(31,36,33,.18);
   --line-3:   rgba(31,36,33,.28);
@@ -420,12 +420,14 @@ h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
   overflow: hidden;
 }
 .connector span {
-  position: absolute; top: 0; left: 0; bottom: 0;
-  width: 0;
+  position: absolute; inset: 0;
   background: var(--accent);
-  transition: width .9s cubic-bezier(.6,.05,.3,1);
+  /* transform animates on the compositor (no layout/paint) */
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .9s cubic-bezier(.6,.05,.3,1);
 }
-.connector.full span { width: 100%; }
+.connector.full span { transform: scaleX(1); }
 
 @media (max-width: 760px) {
   .tape-rail {
@@ -437,8 +439,8 @@ h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
     width: 2px; height: 28px; min-width: 0;
     background: repeating-linear-gradient(to bottom, var(--line-3) 0 5px, transparent 5px 9px);
   }
-  .connector span { width: 100%; height: 0; }
-  .connector.full span { width: 100%; height: 100%; transition: height .9s; }
+  .connector span { transform: scaleY(0); transform-origin: top center; }
+  .connector.full span { transform: scaleY(1); }
   .stage { flex-direction: row; gap: 14px; text-align: left; padding: 8px; }
   .stage-icon { flex-shrink: 0; }
 }
@@ -845,7 +847,7 @@ h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
 }
 .contact-card:hover { background: rgba(255,255,255,.07); transform: translateX(4px); }
 .contact-card h3 { color: var(--paper); margin-bottom: 4px; font-family: var(--serif); font-size: 1.25rem; font-weight: 500; }
-.contact-card p { margin: 2px 0; color: rgba(250,246,237,.6); font-size: .92rem; }
+.contact-card p { margin: 2px 0; color: rgba(250,246,237,.78); font-size: .92rem; }
 .contact-card a { color: rgba(250,246,237,.85); transition: color .2s; }
 .contact-card a:hover { color: var(--gold); }
 .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
