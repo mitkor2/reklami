@@ -77,9 +77,13 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&display=swap">
+<!-- Async font loading: preload the stylesheet, apply it onload; text
+     paints immediately with the serif fallback (font-display: swap). -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&display=swap"></noscript>
 
-<link rel="stylesheet" href="css/site.css?v=20260524">
+<link rel="stylesheet" href="css/site.css?v=20260525">
 
 <meta name="yandex-verification" content="9c181148977f5d3b">
 <meta name="msvalidate.01" content="0D0AD497F4AF7D467A9CED3586ECA602">
@@ -566,6 +570,6 @@
   </div>
 </footer>
 
-<script src="js/site.js?v=20260524" defer></script>
+<script src="js/site.js?v=20260525" defer></script>
 </body>
 </html>
