@@ -854,36 +854,6 @@ h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
 
 /* footer */
 .footer { padding: 56px 0 36px; border-top: 1px solid var(--line); }
-/* Regulatory callout under the process timeline */
-.reg-callout {
-  margin-top: clamp(48px, 6vh, 80px);
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: clamp(22px, 3vw, 36px);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: clamp(20px, 3vw, 40px);
-  align-items: center;
-  box-shadow: 0 18px 40px -28px rgba(31,36,33,.15);
-}
-.reg-callout .reg-callout-text { max-width: 640px; }
-.reg-callout .eyebrow { margin-bottom: 12px; }
-.reg-callout h3 {
-  font-family: var(--serif); font-weight: 500;
-  font-size: clamp(1.3rem, 2.2vw, 1.65rem);
-  line-height: 1.2; letter-spacing: -.01em;
-  margin: 0 0 10px;
-}
-.reg-callout h3 em { font-style: italic; color: var(--accent); }
-.reg-callout p { color: var(--ink-2); font-size: .96rem; line-height: 1.5; margin: 0; }
-.reg-callout .btn svg { transition: transform .25s var(--t); }
-.reg-callout .btn:hover svg { transform: translate(2px, -2px); }
-@media (max-width: 720px) {
-  .reg-callout { grid-template-columns: 1fr; }
-  .reg-callout .btn { justify-self: start; }
-}
-
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 40px; margin-bottom: 40px; }
 @media (max-width: 920px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
